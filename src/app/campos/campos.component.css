@@ -1,0 +1,7 @@
+.flex{
+    display: flex;
+    align-items: flex-start;
+}
+.space{
+    margin-left: 10px;
+}

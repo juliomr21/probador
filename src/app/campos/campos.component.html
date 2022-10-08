@@ -1,0 +1,104 @@
+<p>campos works!</p>
+<div class="form-control"> <H4 > pone en rojo los campos que no estan validados</H4>
+    <p>
+        Los campos con * son obligatorios, los que no son obligatorios si se llenan tienen que estar bien escrito<br>
+        campo obligatorio: cualquier cosa<br>
+        maximo 10 caracteres: cualquier cosa con no mas de 10 caracteres<br>
+        minimo 5 caracteres:  cualquier cosa con mas de 4 caracteres<br>
+        maxvalor: un entero menor que 30<br>
+        minvalor: in entero mayor o igual a 18<br>
+        email: un correo con el formato *@*<br>
+        passworrd: cualquier combinacion de letras y numeros. es obligado una Mayuscula y un numero el password debe tener 8 caracteres como minimo<br>
+        cel cubano: un numero de 10 cifras que empieza con 535 <br>
+        ci cubano: un numero de 11 cifras con fecha valida
+        
+    </p>
+    <form [formGroup]="form"  (submit)="funcion()">
+        
+        <div class="row ">
+
+        
+        <div class=" col-md-4">
+            <input formControlName="novacio" [ngStyle]="novacioColor">
+            <div>
+                <label [ngStyle]="novacioColor">campo obligatorio*</label>
+            </div>
+            
+            
+        </div>
+         <div class=" col-md-4">
+            <input formControlName="max10"   name="max10" [ngStyle]="max10Color">
+            <div>
+                <label [ngStyle]=" max10Color">maximo 10 caracteres</label>
+            </div>
+          
+         </div>
+        
+         <div class=" col-md-4">
+            <input formControlName="min5" [ngStyle]="min5Color">
+            <div>
+                <label [ngStyle]="min5Color">minimo 5 caracteres</label>
+            </div>
+            
+         </div>
+
+         <span style="margin-top: 3%;"></span>
+         
+         <div class=" col-md-4">
+            <input formControlName="maxvalor" [ngStyle]="maxvalorColor">
+            <div>
+                <label  [ngStyle]="maxvalorColor">Numero menor que 30</label>
+            </div>
+            
+         </div>
+
+         <div class=" col-md-4">
+            <input formControlName="minvalor" [ngStyle]="minvalorColor">
+            <div>
+                <label [ngClass]="minvalorColor">numero mayor que 18*</label>
+            </div>
+            
+            
+         </div>
+         <div class=" col-md-4 " >
+            <input formControlName="email" [ngStyle]="emailColor">
+            <div>
+                <label  [ngStyle]="emailColor">email*</label>
+            </div>
+            
+         </div>
+        
+         <span style="margin-top: 3%;"></span>
+        <div class="col-md-4" >
+            <input type="password" formControlName="pass" [ngStyle]="passColor">
+            <div>
+                <label [ngStyle]="passColor" >password*</label>
+            </div>
+            
+        </div>
+        <div class="col-md-4" >
+            <input formControlName="ci" [ngStyle]="ciColor">
+            <div>
+                <label [ngStyle]="ciColor" >Ci cubano *</label>
+            </div>
+            
+        </div>
+        <div class="col-md-4">
+            <input formControlName="cel" [ngStyle]="celColor">
+            <div>
+                <label  [ngStyle]="celColor">cel cuba (535*******)*</label>
+            </div>
+            
+        </div>
+         
+        </div>
+        
+         
+        <button class="btn btn-primary space" style="margin-top: 2%;"> enviar </button>
+        
+    </form>
+<div *ngFor="let camp of errores">
+ {{camp}}
+</div>
+    
+</div>
