@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CamposComponent } from './campos/campos.component';
 import { NgxMaskModule,IConfig} from 'ngx-mask';
+import { CurrencyMaskModule } from "ng2-currency-mask";
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
@@ -15,15 +16,16 @@ const maskConfig: Partial<IConfig> = {
     AppComponent,
     
     CamposComponent,
-   // NgxMaskModule.forRoot(maskConfig)
+   
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     ReactiveFormsModule,
-    NgxMaskModule.forRoot(maskConfig)
-//    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(maskConfig),
+    CurrencyMaskModule
+
     
 
 
