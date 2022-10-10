@@ -33,6 +33,7 @@
             </div>
           
          </div>
+         
         
          <div class=" col-md-4">
             <input formControlName="min5" [ngStyle]="min5Color">
@@ -45,7 +46,7 @@
          <span style="margin-top: 3%;"></span>
          
          <div class=" col-md-4">
-            <input formControlName="maxvalor" [ngStyle]="maxvalorColor">
+            <input formControlName="maxvalor" [ngStyle]="maxvalorColor" mask="0*">
             <div>
                 <label  [ngStyle]="maxvalorColor">Numero menor que 30</label>
             </div>
@@ -53,7 +54,7 @@
          </div>
 
          <div class=" col-md-4">
-            <input formControlName="minvalor" [ngStyle]="minvalorColor">
+            <input formControlName="minvalor" [ngStyle]="minvalorColor" mask="0*">
             <div>
                 <label [ngClass]="minvalorColor">numero mayor que 18*</label>
             </div>
@@ -77,14 +78,14 @@
             
         </div>
         <div class="col-md-4" >
-            <input formControlName="ci" [ngStyle]="ciColor">
+            <input formControlName="ci" [ngStyle]="ciColor" mask="0*">
             <div>
                 <label [ngStyle]="ciColor" >Ci cubano *</label>
             </div>
             
         </div>
         <div class="col-md-4">
-            <input formControlName="cel" [ngStyle]="celColor">
+            <input formControlName="cel" [ngStyle]="celColor" mask="0*">
             <div>
                 <label  [ngStyle]="celColor">cel cuba (535*******)*</label>
             </div>
@@ -104,38 +105,38 @@
 <form [formGroup]="form2" class="row">
    
     <div class="col-md-4">
-        <input mask="(00)00000-0000" formControlName="celb">
+        <input mask="(00)00000-0000" formControlName="celb" placeholder="(12)23456-7894">
         <div>
             <label >Cel Brasil</label>
         </div>
     </div>
     <div class="col-md-4">
-        <input mask="000.000.000-00" >
+        <input mask="000.000.000-00" placeholder="123.456.789-01">
         <div>
             <label >cpf</label>
         </div>
     </div>
     <div class="col-md-4">
-        <input mask="00000-000" >
+        <input mask="00000-000" placeholder="12345-678" >
         <div>
             <label >CP</label>
         </div>
     </div>
     <span style="margin-bottom: 5%;"></span>
     <div class="col-md-4">
-        <input mask="d0/M0/0000" >
+        <input mask="d0/M0/0000" placeholder="dd/mm/yyyy" >
         <div>
             <label >fecha</label>
         </div>
     </div>
     <div class="col-md-4">
-        <input  mask="0*.00" class="rigth-left" >
+        <input  mask="0*.00" class="rigth-left"  >
         <div>
             <label >Saldo</label>
         </div>
     </div>
     <div class="col-md-4">
-        <input  prefix="CU-T " mask="0000" >
+        <input  prefix="CU-T " mask="0000" placeholder="CU-T 1234">
         <div>
             <label >Matricula de Avion cubano</label>
         </div>
@@ -148,7 +149,7 @@
         </div>
     </div>
     <div class="col-md-4">
-        <input class="rigth-left" mask="separator" thousandSeparator="," formControlName="cal">
+        <input class="rigth-left" mask="separator" thousandSeparator="," formControlName="cal" placeholder="1,234,567">
         <div>
             <label >estilo calculadora</label>
         </div>
