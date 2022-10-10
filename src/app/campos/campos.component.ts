@@ -1,7 +1,8 @@
 //import { invalid } from '@angular/compiler/src/render3/view/util';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, PatternValidator, Validators } from '@angular/forms';
 import { ValidatorCi } from '../validator-ci';
+import { NgxMaskModule } from 'ngx-mask';
 @Component({
   selector: 'app-campos',
   templateUrl: './campos.component.html',
@@ -10,6 +11,7 @@ import { ValidatorCi } from '../validator-ci';
 export class CamposComponent implements OnInit {
 
   public form: FormGroup;
+  public form2: FormGroup;
   sol:string = 'hola';
   temaRojo ={
     "border-color": "red",
@@ -30,6 +32,7 @@ export class CamposComponent implements OnInit {
   emailColor = this.temaNegro;
   passColor = this.temaNegro;
   celColor = this.temaNegro;
+
   errores:string[]=[];
   constructor(private fb: FormBuilder) { 
     this.form = fb.group({
@@ -43,6 +46,12 @@ export class CamposComponent implements OnInit {
      // ci: ['',[Validators.required, Validators.pattern('[0-9]{2}(0[1-9]{1}|1[0-2]{1})(0[1-9]{1}|[1-2]{1}[0-9]{1}|3[0-1])[0-9]{5}')]],
       cel: ['',[Validators.required, Validators.pattern('535[0-9]{7}')]],
       ci: ['',[Validators.required, ValidatorCi.ci]]
+      
+    });
+    this.form2 = fb.group({
+      user: ['',[Validators.required]],
+      cp: ['',[Validators.required,Validators.pattern('[0-9]+')]],
+      cpf:['',[Validators.required,Validators.pattern('[0-9]{11}')]],
       
     })
 
@@ -93,8 +102,32 @@ export class CamposComponent implements OnInit {
         case 'novacio': this.novacioColor = this.temaRojo
 
       }
-      console.log(this.errores[err] );
+   
     }
+   
   }
+  valcampo(event:KeyboardEvent)
+  {
+    this.keyPress(event);
+    if((this.form2.value.cp.length  + 1)% 4 == 0 && this.form2.value.cp.length > 0)
+    {
+     let aux =  this.form2.value.cp + ".";
+     
+     this.form2.controls['cp'].setValue(aux);
+    }
 
+    
+  }
+  
+  keyPress(event:KeyboardEvent){
+    const pattern = /[0-9]/;
+    const inputChar = String.fromCharCode(event.charCode);
+    if(!pattern.test(inputChar)){
+      
+    event.preventDefault();
+    
+    }
+    
+  }
+  
 }

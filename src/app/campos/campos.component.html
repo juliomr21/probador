@@ -5,7 +5,7 @@
         campo obligatorio: cualquier cosa<br>
         maximo 10 caracteres: cualquier cosa con no mas de 10 caracteres<br>
         minimo 5 caracteres:  cualquier cosa con mas de 4 caracteres<br>
-        maxvalor: un entero menor que 30<br>
+        maxvalor: un entero menor o igual que 30<br>
         minvalor: in entero mayor o igual a 18<br>
         email: un correo con el formato *@*<br>
         passworrd: cualquier combinacion de letras y numeros. es obligado una Mayuscula y un numero el password debe tener 8 caracteres como minimo<br>
@@ -97,8 +97,17 @@
         <button class="btn btn-primary space" style="margin-top: 2%;"> enviar </button>
         
     </form>
-<div *ngFor="let camp of errores">
+<!-- <div *ngFor="let camp of errores">
  {{camp}}
-</div>
-    
-</div>
+</div> -->
+    (
+</div> 
+<hr>
+<h4>Imprimir con formato los campos</h4>
+<form [formGroup]="form2">
+    <!-- return(event.charCode >= 48 && event.charCode <= 57) -->
+    <input formControlName="cp" (keypress)="valcampo($event)"   min="1" class="rigth-left">
+</form>
+
+<input mask="AAA 000-S0S" >
+<span style="margin-top:5%; margin-bottom:5%"> </span>

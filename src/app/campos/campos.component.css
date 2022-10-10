@@ -5,3 +5,6 @@
 .space{
     margin-left: 10px;
 }
+.rigth-left{
+    direction: rtl;
+}
