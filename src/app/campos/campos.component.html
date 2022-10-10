@@ -105,7 +105,7 @@
 <form [formGroup]="form2" class="row">
    
     <div class="col-md-4">
-        <input mask="(00)00000-0000" formControlName="celb" placeholder="(12)23456-7894">
+        <input mask="(00)00000-0000" formControlName="celb" placeholder="(21)23456-7894">
         <div>
             <label >Cel Brasil</label>
         </div>
@@ -130,7 +130,7 @@
         </div>
     </div>
     <div class="col-md-4">
-        <input  mask="0*.00" class="rigth-left"  >
+        <input prefix="R$ "  mask="0*.00" class="rigth-left" placeholder="0.00" >
         <div>
             <label >Saldo</label>
         </div>
