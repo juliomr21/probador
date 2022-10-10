@@ -102,5 +102,7 @@
       }
     }
   },
-  "defaultProject": "probador"
+  "cli": {
+    "analytics": "c8de2621-3c43-4c90-80cd-daa7a3cc929c"
+  }
 }

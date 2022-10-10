@@ -1,6 +1,6 @@
 //import { invalid } from '@angular/compiler/src/render3/view/util';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, PatternValidator, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, PatternValidator, Validators } from '@angular/forms';
 import { ValidatorCi } from '../validator-ci';
 import { NgxMaskModule } from 'ngx-mask';
 @Component({
@@ -10,8 +10,8 @@ import { NgxMaskModule } from 'ngx-mask';
 })
 export class CamposComponent implements OnInit {
 
-  public form: FormGroup;
-  public form2: FormGroup;
+  public form: UntypedFormGroup;
+  public form2: UntypedFormGroup;
   sol:string = 'hola';
   temaRojo ={
     "border-color": "red",
@@ -34,7 +34,7 @@ export class CamposComponent implements OnInit {
   celColor = this.temaNegro;
 
   errores:string[]=[];
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: UntypedFormBuilder) { 
     this.form = fb.group({
       novacio: ['',[Validators.required]],
       max10: ['',[Validators.maxLength(10)]],
