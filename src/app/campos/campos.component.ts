@@ -23,16 +23,16 @@ export class CamposComponent implements OnInit {
     "color": "black",
     
   }
-  ciColor = this.temaNegro;
-  novacioColor = this.temaNegro;
-  max10Color = this.temaNegro;
-  min5Color = this.temaNegro;
-  maxvalorColor = this.temaNegro;
-  minvalorColor = this.temaNegro;
-  emailColor = this.temaNegro;
-  passColor = this.temaNegro;
-  celColor = this.temaNegro;
-
+  ciColor = {}
+  novacioColor = {}
+  max10Color = {}
+  min5Color = {}
+  maxvalorColor = {}
+  minvalorColor = {}
+  emailColor = {}
+  passColor = {}
+  celColor = {}
+calc="";
   errores:string[]=[];
   constructor(private fb: UntypedFormBuilder) { 
     this.form = fb.group({
@@ -52,6 +52,8 @@ export class CamposComponent implements OnInit {
       user: ['',[Validators.required]],
       cp: ['',[Validators.required,Validators.pattern('[0-9]+')]],
       cpf:['',[Validators.required,Validators.pattern('[0-9]{11}')]],
+      celb: ['',[Validators.required]],
+      cal:['']
       
     })
 
@@ -76,15 +78,15 @@ export class CamposComponent implements OnInit {
   }
   funcionColor(){
 
-   this.ciColor = this.temaNegro;
-   this.novacioColor = this.temaNegro;
-   this.max10Color = this.temaNegro;
-   this.min5Color = this.temaNegro;
-   this.maxvalorColor = this.temaNegro;
-   this.minvalorColor = this.temaNegro;
-   this.emailColor = this.temaNegro;
-   this.passColor = this.temaNegro;
-   this.celColor = this.temaNegro;
+   this.ciColor = {}
+   this.novacioColor = {}
+   this.max10Color = {}
+   this.min5Color = {}
+   this.maxvalorColor = {}
+   this.minvalorColor = {}
+   this.emailColor = {}
+   this.passColor = {}
+   this.celColor = {}
     
     for(let err in this.errores)
     {
@@ -129,5 +131,6 @@ export class CamposComponent implements OnInit {
     }
     
   }
+ 
   
 }

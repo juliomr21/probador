@@ -97,17 +97,71 @@
         <button class="btn btn-primary space" style="margin-top: 2%;"> enviar </button>
         
     </form>
-<!-- <div *ngFor="let camp of errores">
- {{camp}}
-</div> -->
-    (
+
 </div> 
 <hr>
-<h4>Imprimir con formato los campos</h4>
-<form [formGroup]="form2">
-    <!-- return(event.charCode >= 48 && event.charCode <= 57) -->
-    <input formControlName="cp" (keypress)="valcampo($event)"   min="1" class="rigth-left">
+<h4>Campos con formato y validacion  automatica</h4>
+<form [formGroup]="form2" class="row">
+   
+    <div class="col-md-4">
+        <input mask="(00)00000-0000" formControlName="celb">
+        <div>
+            <label >Cel Brasil</label>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <input mask="000.000.000-00" >
+        <div>
+            <label >cpf</label>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <input mask="00000-000" >
+        <div>
+            <label >CP</label>
+        </div>
+    </div>
+    <span style="margin-bottom: 5%;"></span>
+    <div class="col-md-4">
+        <input mask="d0/M0/0000" >
+        <div>
+            <label >fecha</label>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <input  mask="0*.00" class="rigth-left" >
+        <div>
+            <label >Saldo</label>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <input  prefix="CU-T " mask="0000" >
+        <div>
+            <label >Matricula de Avion cubano</label>
+        </div>
+    </div>
+    <span style="margin-top: 3%;"></span>
+    <div class="col-md-4">
+        <input  mask="AAAA-AAAA-AAAA-AAAA" [showMaskTyped]="true" >
+        <div>
+            <label >Clave combinada</label>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <input class="rigth-left" mask="separator" thousandSeparator="," formControlName="cal">
+        <div>
+            <label >estilo calculadora</label>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <input formControlName="user">
+        <div>
+            <label >Campo sin formato</label>
+        </div>
+    </div>
+    
+    <!-- <input formControlName="cp" (keypress)="valcampo($event)"   min="1" class="rigth-left"> -->
 </form>
 
-<input mask="AAA 000-S0S" >
-<span style="margin-top:5%; margin-bottom:5%"> </span>
+
+<label style="margin-top:5%; margin-bottom:5%"> hola fin</label>
